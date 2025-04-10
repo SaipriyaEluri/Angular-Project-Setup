@@ -1,0 +1,29 @@
+.no-data-found-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    [no-data-found-img] img{
+        user-select: none;
+        -webkit-user-drag: none;
+        margin-top: 2rem;
+        height: 15rem;
+    }
+    [label-area]{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        [label]{
+            height:0.07rem;
+            width:5rem;
+            background:#eee;
+            margin-top: 1rem;
+        }
+    }
+}
+
+.img-png-type{
+    height: 10rem !important;
+    padding: 5rem !important;
+}

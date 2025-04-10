@@ -1,0 +1,59 @@
+<div class="nav-item" [ngClass]="headerType">
+   
+    <span class="page-title type"></span>
+    <span fxFlex>
+        <!-- <span id="contractorName">{{contractorName}} </span> -->
+    </span>
+
+  
+    <div class="user-profile" [matMenuTriggerFor]="menu" cursor>
+        
+        <div info>
+            <!-- <ng-container *ngIf="isSuperAdminProjectSelected && getProjectInfo?.developerLogo"> -->
+                <!-- <img [src]="getProjectInfo?.developerLogo" /> -->
+                <span name>{{'Mr. John Doe'}}</span>
+                <!-- <span role>{{authData?.role}}</span> -->
+            <!-- </ng-container> -->
+          
+        </div>
+        <img [src]="userImg" />
+        <!-- <mat-icon>account_circle</mat-icon> -->
+
+    </div>
+
+</div>
+
+<mat-menu #menu="matMenu">
+
+    <!-- <div class="project-info-dropdown">
+        <span
+            style="font-weight: 600;margin-bottom: 3px;">
+            {{authData?.name || authData?.userName}}
+        </span>
+        <span style="font-size: 0.8rem;color: #A3A3A3;">
+            {{authData.role}}
+        </span>
+    </div>
+    <hr> -->
+
+    <button (click)="changePassword()" mat-menu-item>
+        <!-- <mat-icon>lock_reset</mat-icon> -->
+         <span>
+            <svg width="30" height="15" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 0C7.65685 0 9 1.34315 9 3V4L10 4C11.1046 4 12 4.89543 12 6L12 13C12 14.1046 11.1046 15 10 15L2 15C0.89543 15 0 14.1046 0 13L0 6C0 4.89543 0.89543 4 2 4H3V3C3 1.34315 4.34315 0 6 0ZM10 5L2 5C1.44772 5 1 5.44772 1 6L1 13C1 13.5523 1.44772 14 2 14L10 14C10.5523 14 11 13.5523 11 13L11 6C11 5.44772 10.5523 5 10 5ZM6 8.5C6.55228 8.5 7 8.94772 7 9.5C7 10.0523 6.55228 10.5 6 10.5C5.44772 10.5 5 10.0523 5 9.5C5 8.94772 5.44772 8.5 6 8.5ZM6 1C4.89543 1 4 1.89543 4 3L4 4L8 4V3C8 1.89543 7.10457 1 6 1Z" fill="#525252"/>
+                </svg>
+                
+         </span>
+        <span password>Change Password</span>
+    </button>
+    <button (click)="logout()" mat-menu-item>
+        <!-- <mat-icon>power_settings_new</mat-icon> -->
+         <span>
+            <svg width="30" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5 11.25C8.91421 11.25 9.25 10.9142 9.25 10.5C9.25 10.0858 8.91421 9.75 8.5 9.75C8.08579 9.75 7.75 10.0858 7.75 10.5C7.75 10.9142 8.08579 11.25 8.5 11.25ZM11 3.5C11 3.3542 10.9364 3.21567 10.8257 3.12068C10.7151 3.02569 10.5686 2.98371 10.4244 3.00574L3.42445 4.07574C3.18032 4.11306 3 4.32303 3 4.57L3 15.43C3 15.6769 3.18028 15.8869 3.42438 15.9243L10.4244 16.9953C10.5685 17.0173 10.7151 16.9754 10.8257 16.8804C10.9363 16.7854 11 16.6468 11 16.501L11 10L16.1722 10L15.1753 10.8737C14.9679 11.0556 14.9468 11.3714 15.1284 11.5793C15.3099 11.7871 15.6253 11.8081 15.8328 11.6263L17.8295 9.8763C17.9379 9.78135 18 9.64419 18 9.50001C18 9.35583 17.9379 9.21867 17.8295 9.12372L15.8328 7.37372C15.6253 7.19188 15.3099 7.21294 15.1284 7.42076C14.9468 7.62858 14.9679 7.94446 15.1753 8.1263L16.1723 9.00002L11 9.00002V3.5ZM10 4.08224L10 15.9187L4 15.0007L4 4.99938L10 4.08224ZM12.5 16H12V11H13V15.5C13 15.7761 12.7761 16 12.5 16ZM12 8V4H12.5C12.7761 4 13 4.22386 13 4.5V8H12Z" fill="#E63535"/>
+                </svg>
+                
+         </span>
+        <span logout>Sign Out</span>
+    </button>
+</mat-menu>

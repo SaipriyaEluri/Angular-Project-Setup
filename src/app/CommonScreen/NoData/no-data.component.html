@@ -1,0 +1,11 @@
+<div class="no-data-found-group">
+    <section *ngIf="!loading">
+      <div no-data-found-img >
+        <img [src]="source" [ngClass]="source=='assets/Images/no-data.avif' ? 'img-gif-type' : 'img-png-type' " />
+      </div>
+      <div *ngIf="source=='assets/Images/no-data.avif'" label-area><div label > </div></div>
+    </section>
+    <section *ngIf="loading" class="loading-position">
+      <mat-spinner class="custom-spinner" style="align-self: center;" diameter="35"></mat-spinner>
+    </section>
+  </div>

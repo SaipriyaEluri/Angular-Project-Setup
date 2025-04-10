@@ -1,0 +1,46 @@
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav 
+    [mode]="isBiggerScreen() ? 'over' : 'side'" 
+    [(opened)]="opened" 
+    [fixedInViewport]="true"
+    [ngStyle]="{ width: sidebarWidth + 'px' }" 
+    class="smooth-transition">
+
+    <mat-toolbar *ngIf="showFullBar" class="sidebar-header overflow-hidden">
+      <img pointer [defaultImage]="defaultImage" [lazyLoad]="sidebarLogo" [useSrcset]="true" routerLink="/verify-people" />
+      <button (click)="onToggle()" class="hamburger-sidebar-menu" mat-icon-button>
+        <svg width="20" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M20.6857 10.3859C21.1354 10.8419 21.1302 11.5762 20.6741 12.0259C20.2206 12.4729 19.4916 12.4706 19.0409 12.0209L15.4285 8.41563C14.6455 7.63426 14.6455 6.36574 15.4285 5.58437L19.0409 1.97915C19.4916 1.52936 20.2206 1.52712 20.6741 1.97413C21.1302 2.42378 21.1354 3.15807 20.6857 3.61411L17.3467 7L20.6857 10.3859ZM0.5 1.16667C0.5 0.522334 1.02233 0 1.66667 0H14.5C15.1443 0 15.6667 0.522334 15.6667 1.16667C15.6667 1.811 15.1443 2.33333 14.5 2.33333H1.66667C1.02234 2.33333 0.5 1.811 0.5 1.16667ZM1.66667 8.16667C1.02234 8.16667 0.5 7.64433 0.5 7C0.5 6.35567 1.02233 5.83333 1.66667 5.83333H11C11.6443 5.83333 12.1667 6.35567 12.1667 7C12.1667 7.64433 11.6443 8.16667 11 8.16667H1.66667ZM1.66667 14C1.02234 14 0.5 13.4777 0.5 12.8333C0.5 12.189 1.02233 11.6667 1.66667 11.6667H14.5C15.1443 11.6667 15.6667 12.189 15.6667 12.8333C15.6667 13.4777 15.1443 14 14.5 14H1.66667Z"
+            fill="white" />
+        </svg>
+      </button>
+    </mat-toolbar>
+
+    <mat-toolbar *ngIf="!showFullBar" class="sidebar-header overflow-hidden">
+      <img pointer (click)="onToggle()" [defaultImage]="defaultSmallImage" [lazyLoad]="SmallsidebarLogo" [useSrcset]="true" routerLink="/verify-people" />
+    </mat-toolbar>
+
+    <!-- <mat-toolbar *ngIf="!showFullBar" class="sidebar-header overflow-hidden">
+      <button (click)="onToggle()" class="hamburger-sidebar-menu" mat-icon-button>
+        <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.31434 10.3859C0.864618 10.8419 0.869799 11.5762 1.32592 12.0259C1.77936 12.4729 2.50842 12.4706 2.95911 12.0209L6.57154 8.41563C7.35448 7.63426 7.35448 6.36574 6.57154 5.58437L2.95911 1.97915C2.50842 1.52936 1.77936 1.52712 1.32592 1.97413C0.869799 2.42378 0.864616 3.15807 1.31434 3.61411L4.65333 7L1.31434 10.3859ZM21.5 1.16667C21.5 0.522334 20.9777 0 20.3333 0H7.5C6.85567 0 6.33333 0.522334 6.33333 1.16667C6.33333 1.811 6.85567 2.33333 7.5 2.33333H20.3333C20.9777 2.33333 21.5 1.811 21.5 1.16667ZM20.3333 8.16667C20.9777 8.16667 21.5 7.64433 21.5 7C21.5 6.35567 20.9777 5.83333 20.3333 5.83333H11C10.3557 5.83333 9.83333 6.35567 9.83333 7C9.83333 7.64433 10.3557 8.16667 11 8.16667H20.3333ZM20.3333 14C20.9777 14 21.5 13.4777 21.5 12.8333C21.5 12.189 20.9777 11.6667 20.3333 11.6667H7.5C6.85567 11.6667 6.33333 12.189 6.33333 12.8333C6.33333 13.4777 6.85567 14 7.5 14H20.3333Z" fill="#8c8a8a"/>
+          </svg>  
+      </button>
+    </mat-toolbar> -->
+
+    <side-menu [showFullBar]="showFullBar" [sideMenuListObj]="sideMenuListObj" (onChangeRoutes)="onChangeRoutes($event)">
+    </side-menu>
+  </mat-sidenav>
+
+  <mat-sidenav-content (window:resize)="onSizeChange($event)" [style.marginLeft.rem]="isCollapsed ? 3.5 : 12.5">
+    <mat-toolbar color="primary" class="main-header">
+      <div [style.width.%]="100" class="header-bar" [style.marginLeft.rem]="isCollapsed ? 0 : 15">
+        <header></header>
+      </div>
+    </mat-toolbar>
+    <mat-toolbar id="content-toolbar"></mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

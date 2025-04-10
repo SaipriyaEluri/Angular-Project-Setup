@@ -1,0 +1,231 @@
+.t-right {
+    text-align: right
+}
+
+.t-left {
+    text-align: left
+}
+
+.t-center {
+    text-align: center
+}
+
+[pointer] {
+    cursor: pointer
+}
+
+table.pr-table thead tr,
+table.pr-table thead tr.mat-mdc-header-row {
+    height: 35px !important;
+    max-height: 35px !important;
+    background-color: var(--lt-warn) !important
+}
+
+table.pr-table thead tr th {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important
+}
+
+table.pr-table.primary-header thead tr,
+table.pr-table.primary-header thead tr.mat-mdc-header-row {
+    height: 35px !important;
+    max-height: 35px !important;
+    background-color: var(--lt-primary) !important;
+    /* color: var(--lt-light) */
+}
+
+table.pr2-table.primary-header thead tr,
+table.pr2-table.primary-header thead tr.mat-mdc-header-row {
+    background-color: #F8FAFC !important;
+    color: var(--lt-text);
+}
+
+
+@media screen and (min-height:690px) and (max-height:900px) {
+    .mat-mdc-row {
+        height: 2.875rem !important
+    }
+}
+
+.template-snackbar {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 5px;
+    margin-right: 1.3rem !important;
+    --mdc-snackbar-container-shape: 6px !important
+}
+
+.template-snackbar .mat-mdc-snack-bar-label,
+.template-snackbar .mdc-snackbar__surface {
+    padding: 0 !important
+}
+
+.mui-dialog-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eff2f7;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    -webkit-box-shadow: 0 6px 4px -6px #eff2f7;
+    -moz-box-shadow: 0 6px 4px -6px #eff2f7;
+    box-shadow: 0 6px 4px -6px #eff2f7
+}
+
+.mui-dialog-header div {
+    font-family: var(--ff-medium);
+    font-size: 1.125rem
+}
+
+.nowrap-txt {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.card-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto
+}
+
+.hide {
+    display: none
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0
+}
+
+input[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield
+}
+
+.data-management mat-radio-button .mdc-label {
+   
+    font-size: 13px !important;
+    font-style: normal !important;
+    color: #7a7777 !important;
+    margin-left: -5px;
+    padding-right: 7px
+}
+
+.text-capitalize {
+    text-transform: capitalize
+}
+
+table.pr-table.ls-minus thead tr th {
+    letter-spacing: -0.5px !important;
+}
+
+.alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem
+}
+
+.alert p {
+    font-size: 14px;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: rgb(248 215 218 / 48%);
+    border-color: #f5c6cb
+}
+
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba
+}
+
+.alert-heading {
+    color: inherit;
+}
+
+.alert-success>.alert-heading {
+    color: #155724 !important;
+}
+
+.alert-warning>.alert-heading {
+    color: #856404 !important;
+}
+
+.alert-danger>.alert-heading {
+    color: #721c24 !important;
+}
+
+.alert-info {
+    color: #607d8b !important;
+    background-color: #eff0ff !important;
+    border-color: #e2e5f9;
+}
+
+.alert-info>.alert-heading {
+    color: #607d8b !important;
+}
+
+.alert-dismissible {
+    padding-right: 4rem;
+}
+
+.alert-dismissible .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75rem 1.25rem !important;
+    color: inherit;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #666;
+    opacity: .1;
+    z-index: 998;
+    height: 100%;
+    width: 100%
+}
+
+.ldrcenter {
+    position: fixed;
+    top: 50%;
+    left: 50%
+}
+
+.audio-rec {
+    height: 24px;
+    cursor: pointer;
+    width: auto;
+    padding-top: 3px;
+}
+.text-end{
+    text-align: end;
+}

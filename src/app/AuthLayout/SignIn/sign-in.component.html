@@ -1,0 +1,51 @@
+<div class="main-container">
+    <div class="login-container card-panel gradiant-bg paddB15">
+        
+        <div class="logo">
+            <img src="assets/Images/logo.png" alt="Versatile Commerce">
+        </div>
+        <div class="login-box">
+            <h2 class="text-center">Sign in here</h2>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label>Username / Email address</label>
+                    <div class="input-group mt-2">
+                        <span class="input-group-text">
+                            <mat-icon>mail</mat-icon>
+                        </span>
+                        <input type="text" class="form-control" formControlName="email" placeholder="Username / Email Address">
+                    </div>
+                    <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched" class="error">
+                        Enter a valid email address
+                    </div>
+                </div>
+                
+                <div class="form-group mt-3">
+                    <label>Password</label>
+                    <div class="input-group mt-2">
+                        <span class="input-group-text">
+                            <mat-icon>lock_open</mat-icon> 
+                        </span>
+                        <input [type]="showPassword ? 'text' : 'password'" class="form-control" formControlName="password" placeholder="Password">
+                        <span class="input-group-text" (click)="togglePassword()">
+                            <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                        </span>
+                    </div>
+                    <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="error">
+                        Password is required
+                    </div>
+                </div>
+                
+                <div class="text-end mt-2">
+                    <a href="#" class="forgot-password">I forgot my password</a>
+                </div>
+                <button type="submit" class="btn w-100 mt-3" [disabled]="loginForm.invalid">SIGN IN</button>
+                
+            </form>
+        </div>
+        <div class="my-3">
+            <p class="text-center mt-3">Don't have an account? <a href="#" class="register-link">Register here</a>
+            </p>
+        </div>
+    </div>
+</div>

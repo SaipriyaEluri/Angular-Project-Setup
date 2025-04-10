@@ -1,0 +1,53 @@
+<div class="sidemenu-container lightTheme d-flex flex-column" [ngClass]="{'mini': !showFullBar}">
+    <mat-nav-list>
+        <ng-template ngFor let-v [ngForOf]="sideMenuListObj" let-i="index">
+            <a *ngIf="v.visibility" mat-list-item (click)="onChange(v, i)" [routerLink]="v?.subMenu && v?.subMenu.length ? [] : [v?.link]"
+                [routerLinkActive]="v?.subMenu && v?.subMenu.length ? '': ['active-link']"  [routerLinkActiveOptions]="{ exact: false }" 
+                [ngClass]="{'mini-list-item': !showFullBar, 'active-link': v?.subMenu && v?.subMenu.length && submenuActivateIndexNo==i }">
+                <div link-icon-warpper [ngClass]="{'mini-icon-warpper': !showFullBar}">
+                    <!-- <span *ngIf="v?.iconType!='svg' && v?.iconType!='png'" link-icon>
+                        <mat-icon>{{v?.icon}}</mat-icon>
+                    </span> -->
+                    <!-- <span *ngIf="v?.iconType=='png'" [ngClass]="v?.icon" link-icon>
+                        <img id="menu-icon-avatar" [src]="'assets/Imgs/Icons/'+v?.icon+'.png'" />
+                    </span>
+                    <span *ngIf="v?.iconType=='svg'" link-icon>
+                        <svg-icon name="{{v?.icon}}" [height]="20" [width]="20"></svg-icon>
+                    </span> -->
+                    <span  link-icon>
+                        <mat-icon>{{v?.icon}}</mat-icon>
+                    </span>
+                    <span link-name>{{v?.displayName}}</span>
+                </div>
+            </a>
+            <ng-container *ngIf="v?.subMenu && v?.subMenu.length">
+                <div style="position: relative;" [ngClass]="{'d-none':showSubmenu !=i}">
+
+                    <button *ngIf="!showFullBar" id="submenu-id-{{i}}" style="opacity: 0; z-index: -1;top:-50px; right: 0px; width: 0; position: absolute; background-color: transparent;border: none;"  [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"></button>
+                    <mat-menu #menu="matMenu" class="my-custom-sidebar-submenu" [ngClass]="{'d-none': !showFullBar}">
+                        <ng-template matMenuContent>
+                            <button mat-menu-item *ngFor="let sub of v.subMenu" (click)="onChangeSubMenu(sub, i)" [routerLinkActiveOptions]="{ exact: true }" [routerLinkActive]="['sub-active-link']" [routerLink]="[sub?.link]">{{sub.displayName}}</button>
+                        </ng-template>
+                    </mat-menu>
+                    <div *ngIf="showFullBar" class="submenu" [ngClass]="{'expanded' : showSubmenu === i, 'mini-submenu': !showFullBar}">
+                        <a [routerLink]="[sub?.link]" (click)="onChangeSubMenu(sub, i)" [routerLinkActive]="['sub-active-link']" *ngFor="let sub of v.subMenu"
+                            mat-list-item class="sub-menu-link">&nbsp;&nbsp;<span link-name [ngClass]="{'mini-link-name': !showFullBar}">{{sub.displayName}}</span></a>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-template>
+    </mat-nav-list>
+    <div fxFlex></div>
+    <!-- <footer *ngIf="isInspectElementOpened" [ngClass]="{'d-none': !showFullBar}" side-menu-footer>
+        <section>
+            <span>Powered&nbsp;By </span>
+            <img src="assets/Imgs/Default/sidebar-logo.png" />
+        </section>
+    </footer>
+
+    <footer *ngIf="isInspectElementOpened" [ngClass]="{'d-none': showFullBar}"  side-menu-footer-small>
+        <section>
+            <img src="assets/Imgs/Default/snagar-sidemenu.png" style="max-width: 100%;" />
+        </section>
+    </footer> -->
+</div>

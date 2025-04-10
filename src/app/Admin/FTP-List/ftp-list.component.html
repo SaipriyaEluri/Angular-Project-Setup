@@ -1,0 +1,90 @@
+        <div class="row d-flex justify-content-between align-items-center px-3">
+
+            <div class="col-12 col-md-3 col-lg-3 col-xl-3">
+                <div class="project_details_header">
+                    FTP/SFTP
+                </div>
+        
+            </div>
+
+            <div class="col-6 d-flex justify-content-end">
+                <!-- <div class="col-6 col-md-6 col-lg-4" style="position: relative;margin-right: 60px;">
+                    <input type="text" class="form-control" [style.width.%]="100" placeholder="Search"
+                    >
+
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); pointer-events: none;">
+                        <path
+                            d="M5.5 0.5C8.53757 0.5 11 2.96243 11 6C11 7.24832 10.5841 8.39951 9.88336 9.32257L14.0303 13.4697C14.3232 13.7626 14.3232 14.2374 14.0303 14.5303C13.7641 14.7966 13.3474 14.8208 13.0538 14.6029L12.9697 14.5303L8.82257 10.3834C7.89951 11.0841 6.74832 11.5 5.5 11.5C2.46243 11.5 0 9.03757 0 6C0 2.96243 2.46243 0.5 5.5 0.5ZM5.5 2C3.29086 2 1.5 3.79086 1.5 6C1.5 8.20914 3.29086 10 5.5 10C7.70914 10 9.5 8.20914 9.5 6C9.5 3.79086 7.70914 2 5.5 2Z"
+                            fill="#737373" />
+                    </svg>
+                </div> -->
+                <button type="button" class="btn me-2">
+                    <span class="me-2">
+                        <svg width="14" height="12" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 8.5H0V6.5H6V0.5H8V6.5H14V8.5H8V14.5H6V8.5Z" fill="white" />
+                        </svg>
+                    </span>
+                    <span>Add FTP</span>
+                </button>
+                <button type="button" class="btn">
+                    <span class="me-2">
+                        <svg width="20" height="15" viewBox="0 0 20 18" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.5 4L11.5 4C11.5 3.17157 10.8284 2.5 10 2.5C9.17157 2.5 8.5 3.17157 8.5 4ZM7.5 4C7.5 2.61929 8.61929 1.5 10 1.5C11.3807 1.5 12.5 2.61929 12.5 4L17.5 4C17.7761 4 18 4.22386 18 4.5C18 4.77614 17.7761 5 17.5 5H16.4456L15.2521 15.3439C15.0774 16.8576 13.7957 18 12.2719 18H7.72813C6.20431 18 4.92256 16.8576 4.7479 15.3439L3.55437 5H2.5C2.22386 5 2 4.77614 2 4.5C2 4.22386 2.22386 4 2.5 4L7.5 4ZM5.74131 15.2292C5.85775 16.2384 6.71225 17 7.72813 17H12.2719C13.2878 17 14.1422 16.2384 14.2587 15.2292L15.439 5L4.56101 5L5.74131 15.2292ZM8.5 7.5C8.77614 7.5 9 7.72386 9 8L9 14C9 14.2761 8.77614 14.5 8.5 14.5C8.22386 14.5 8 14.2761 8 14L8 8C8 7.72386 8.22386 7.5 8.5 7.5ZM12 8C12 7.72386 11.7761 7.5 11.5 7.5C11.2239 7.5 11 7.72386 11 8L11 14C11 14.2761 11.2239 14.5 11.5 14.5C11.7761 14.5 12 14.2761 12 14L12 8Z"
+                            fill="white" />
+                    </svg>
+                    </span>
+                    <span>Delete</span>
+                </button>
+            </div>
+
+            </div>
+        
+
+    <div class="row" style="margin-right:5px">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-12">
+           
+            <div class="table-container">
+                <div class="table-wrapper">
+                  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 mat-table-fixed pr-table-striped">
+                    
+                    <!-- Checkbox Column -->
+                    <ng-container matColumnDef="select" sticky>
+                      <th mat-header-cell *matHeaderCellDef>
+                        <mat-checkbox class="custom-checkbox" (change)="selection.clear()" aria-label="Select All"></mat-checkbox>
+                      </th>
+                      <td mat-cell *matCellDef="let row">
+                        <mat-checkbox (change)="toggleSelection(row)" [checked]="selection.has(row.sno)" aria-label="Select Row"></mat-checkbox>
+                      </td>
+                    </ng-container>
+              
+                    <!-- Define Columns Dynamically -->
+                    <ng-container *ngFor="let column of displayedColumns.slice(1)" [matColumnDef]="column">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column | titlecase }} </th>
+                      <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+                    </ng-container>
+              
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+
+                  <div *ngIf="dataSource.data.length==0" [style.margin-top.rem]="5" [style.height.vh]="62">
+                    <app-no-data [loading]="!isLoading"></app-no-data>
+                </div>
+
+                </div>
+
+               
+              
+                <!-- Pagination (Outside Scroll) -->
+                <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20,50,100]" showFirstLastButtons></mat-paginator>
+            </div>
+              
+                
+
+               
+        </div>
+    </div>
+
