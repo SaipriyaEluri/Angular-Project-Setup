@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   fileUploadUrl: 'https://images.propcheck.in/uploadfiles.php',
   
-  baseUrl: 'https://dcfapi.propright.in/api/v1.0',// PROD server,
+  baseUrl: 'http://localhost:3002/api/v1.0',// UAT SERVER HOST,
  
   STORAGE_KEY: '@PROPCHK_SNAG3R_STORAGE',
   emailPattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,

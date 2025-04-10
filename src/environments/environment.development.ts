@@ -2,7 +2,7 @@ export const environment = {
   production: false,
   fileUploadUrl: 'https://images.propcheck.in/uploadfiles.php',
  
-  baseUrl: 'http://103.231.126.149:3002/api/v1.0',// UAT SERVER HOST,
+  baseUrl: 'http://localhost:3002/api/v1.0',// UAT SERVER HOST,
   
   STORAGE_KEY: '@PROPCHK_SNAG3R_STORAGE',
   emailPattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
